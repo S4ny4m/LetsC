@@ -2,6 +2,7 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "stdlib.h": "c",
-        "SANAKEE.C": "cpp"
+        "SANAKEE.C": "cpp",
+        "CODEFOR.C": "cpp"
     }
 }

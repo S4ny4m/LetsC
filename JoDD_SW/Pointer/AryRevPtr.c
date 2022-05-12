@@ -2,7 +2,7 @@
 /*here we will print a series of number in
 reverse order using pointer.*/
 
-int main()
+int main()  
 {
     int n;
     printf("Enter the number of Inputs:\n");

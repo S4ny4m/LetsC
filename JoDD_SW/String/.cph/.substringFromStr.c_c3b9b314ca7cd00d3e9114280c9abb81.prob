@@ -1,1 +1,1 @@
-{"name":"Local: substringFromStr","url":"d:\\C\\LetsC\\JoDD_SW\\String\\substringFromStr.c","tests":[{"id":1652361832226,"input":"this is test string\n9\n4\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C\\LetsC\\JoDD_SW\\String\\substringFromStr.c","group":"local","local":true}
+{"name":"Local: substringFromStr","url":"d:\\C\\LetsC\\JoDD_SW\\String\\substringFromStr.c","tests":[],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C\\LetsC\\JoDD_SW\\String\\substringFromStr.c","group":"local","local":true}

@@ -10,11 +10,11 @@ int main()
     printf("The given string is: %s\n",c);
     
     printf("Now printing in Spacewise Reverse order : ");
-    for (i=0;c[i]!='\0';i++)
-    {
-        count++;
-    }
-    for(i=count;i>=0;i--)
+    // for (i=0;c[i]!='\0';i++)
+    // {
+    //     count++;
+    // }
+    for(i=strlen(c);i>=0;i--)
         printf("%c ",c[i]);
     
 return 0;

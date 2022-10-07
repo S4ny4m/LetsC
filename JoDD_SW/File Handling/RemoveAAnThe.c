@@ -1,14 +1,25 @@
 #include <stdio.h>
-#include <string.h>
-
 int main()
 {
-    FILE *p;
-    char c[200];
-    scanf("%[^\n]s", c);
-    for (int i = 0; i != '\0'; i++)
+    int i;
+    char s[200],ch;
+    FILE *p,*v;
+    p = fopen("x.txt","w+");
+    v = fopen("value.txt","a+");
+    while((ch=getchar())!=EOF)
     {
-        if (c[i] == 'a' || strcmp()||)
+        putc(ch,p);
+    }
+    rewind(p);
+    fscanf(p,"%c",&ch);
+    while((ch!=EOF))
+    {
+        if(ch == 'a' || ch=='e' || ch == 'i' || ch == 'o' || ch == 'u')
+        {
+            // putc(ch,v);
+            printf("%c",ch);
+        }
+        fscanf(p,"%c",&ch);
     }
     return 0;
 }

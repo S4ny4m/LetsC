@@ -5,7 +5,7 @@ char xo[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '\0'}; // a var array 
 int plrOrAi();                                                   // a function to see who is going to play;
 void borders();                                                  // a function to print the initial skeleton of the game;
 int player(int turn);                                            // a function to take input according to the player number;
-void checkup(int turn, int choice);                              // a function that dosent let the user to take a square again;
+void checkup(int turn, int choice, int against);                 // a function that dosent let the user to take a square again;
 void printup();                                                  // a function that prints the updated choice ;
 int checkwin();                                                  // a function that returns 1 if someone wins ;
 int ai(int turn, int choice);                                    // a function to pick choices from ai;
@@ -18,11 +18,11 @@ int main()
     for (turn = 1; turn <= 9 && win != 1; turn++)
     {
 
-        if (against == 2)
+        if (against == 2) // for Plr VS Plr
         {
             printf("turn% d\n", turn);
             choice = player(turn);
-            checkup(turn, choice);
+            checkup(turn, choice, against);
             system("cls");
             printup();
             if (turn > 4)
@@ -37,7 +37,7 @@ int main()
                 // ai
                 choice = ai(turn, choice);
             }
-            checkup(turn, choice);
+            checkup(turn, choice, against);
             // system("cls");
             printup();
             if (turn > 4)
@@ -46,7 +46,6 @@ int main()
     }
     return 0;
 }
-
 
 int plrOrAi()
 {
@@ -62,7 +61,6 @@ int plrOrAi()
     return against;
 }
 
-
 void borders()
 {
     printf("\n\n Tic Tac Toe\n\n");
@@ -74,7 +72,6 @@ void borders()
     printf("    |    |    \n");
     printf("Enter a choice from {1-9}.\n");
 }
-
 
 int player(int turn)
 {
@@ -92,18 +89,23 @@ int player(int turn)
     return choice;
 }
 
-
-void checkup(int turn, int choice)
+void checkup(int turn, int choice, int against)
 {
     int newchoice;
     repCheck[choice - 1]++;
     // now updating the value so that we can check the
-    if (repCheck[choice - 1] > 1)
+    if (repCheck[choice - 1] > 1 && against == 2)
     {
         printf("Dekh kar chal na,%d mat le \" already taken \"", choice);
         repCheck[choice - 1]--;
         newchoice = player(turn);
-        checkup(turn, newchoice);
+        checkup(turn, newchoice, against);
+    }
+    else if (repCheck[choice - 1] > 1 && against == 1)
+    {
+        repCheck[choice - 1]--;
+        newchoice = ai(turn, choice);
+        checkup(turn, newchoice, against);
     }
     else
     {
@@ -119,7 +121,6 @@ void checkup(int turn, int choice)
     }
 }
 
-
 void printup()
 {
     printf("\t  %c |  %c | %c  \n", xo[0], xo[1], xo[2]);
@@ -129,7 +130,6 @@ void printup()
     printf("\t  %c |  %c | %c  \n", xo[6], xo[7], xo[8]);
     printf("\t    |    |    \n");
 }
-
 
 int checkwin()
 {
@@ -199,27 +199,17 @@ int checkwin()
     }
 }
 
-
-
 int ai(int turn, int choice)
 {
-    static int user[5] = {0},arti[4]={0};
-    printf("\n%d\n", choice);
-    if ((turn-1)%2==1)
-        user[choice]++;
-    static int khali[10]={0};
-    
-    khali[choice]++;
-    if (turn - 1 == 1)
+    if (turn < 4)
     {
-        if (khali[1] == 1 || (khali[3] == 1) || khali[7] == 1 || khali[9] == 1)
-            choice = 5;
-        
+        while (1)
+        {
+            choice = rand();
+            if (choice <= 9 && choice >= 1)
+                break;
+        }
     }
-    
-
-    int i = 0;
-    printf("AI choosed to play at : %d\n", choice);
-    khali[choice]++;
+    printf("AI choosed : %d \n", choice);
     return choice;
 }

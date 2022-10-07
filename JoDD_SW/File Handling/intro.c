@@ -23,19 +23,19 @@ int main()
             puts(c);
         }
 
-        // printf("Enter number of char :\n");
-        // scanf("%d", &t);
-        // while ((c=getchar())!=EOF)
-        // {
+        printf("Enter number of char :\n");
+        scanf("%d", &t);
+        while ((c=getchar())!=EOF)
+        {
 
-        //     scanf("%c",&c);
-        //     if (c == 'a')
-        //         fputc(c,p);
-        //         //fprintf(v, "%c", c);
-        //     /* code */
-        //     else
-        //         fputc(c,v);
-        // }
+            scanf("%c",&c);
+            if (*c == 'a')
+                // fputc(c,p);
+                fprintf(v, "%c", c);
+            /* code */
+            else
+                fputc(c,v);
+        }
     }
 
     printf("DONE.\n");

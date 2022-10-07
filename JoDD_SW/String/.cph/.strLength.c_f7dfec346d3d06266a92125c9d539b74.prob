@@ -1,0 +1,1 @@
+{"name":"Local: strLength","url":"d:\\C\\LetsC\\JoDD_SW\\String\\strLength.c","tests":[{"id":1658050465047,"input":"2\n2\n5","output":"2\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C\\LetsC\\JoDD_SW\\String\\strLength.c","group":"local","local":true}
